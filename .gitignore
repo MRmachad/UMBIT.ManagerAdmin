@@ -1,0 +1,8 @@
+.vs
+packages
+UMBIT.ManagerAdmin.Dominio/bin
+UMBIT.ManagerAdmin.Dominio/obj
+UMBIT.ManagerAdmin.Infra/bin
+UMBIT.ManagerAdmin.Infra/obj
+UMBIT.ManagerAdmin.InterfaceWeb/bin
+UMBIT.ManagerAdmin.InterfaceWeb/obj

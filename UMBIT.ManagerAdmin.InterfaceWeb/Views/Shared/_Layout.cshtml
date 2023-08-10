@@ -4,221 +4,208 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] ManagerAdmin</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/app.min.css"/>
-    <link rel="stylesheet" href="~/css/vendor.min.css" />
-    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/vendor/jqvmap/css/jqvmap.min.css">
+    <link rel="stylesheet" href="~/icons/themify-icons/css/themify-icons.css" />
+    <link rel="icon" type="image/png" sizes="16x16" href="~/images/favicon.png">
+    <link rel="stylesheet" href="~/vendor/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/vendor/owl-carousel/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="~/UMBIT.ManagerAdmin.InterfaceWeb.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <div id="app" class="app app-header-fixed app-sidebar-fixed">
-
-       @* Define o header do layout*@
-        <div id="header" class="app-header">
-
-            @* Logo canto esquedor superior*@
-            <div class="navbar-header">
-                <a asp-action="Index" asp-controller="Home" class="navbar-brand">
-                    <span class="navbar-logo"></span> <b class="me-3px">Manager</b>Admin
-                </a>
-            </div>
-            @* notificação e breve perfil canto direito superior*@
-            <div class="navbar-nav">
-                <div class="navbar-item dropdown">
-                    @*Incone notificação*@
-                    <a href="#" data-bs-toggle="dropdown" class="navbar-link dropdown-toggle icon">
-                        <i class="fa fa-bell"></i>
-                        <span class="badge">5</span>
-                    </a>
-                    @*Incone notificação*@
-
-                    @*Ações notificação*@
-                    <div class="dropdown-menu media-list dropdown-menu-end">
-                        <div class="dropdown-header">NOTIFICATIONS (5)</div>
-                        @*Actions Notificações*@
-                        <a href="javascript:;" class="dropdown-item media">
-                            <div class="media-left">
-                                <img src="~/assets/profile_menu_icon_149887.png" class="media-object" alt="" />
-                                <i class="fab fa-facebook-messenger text-blue media-object-icon"></i>
-                            </div>
-                            <div class="media-body">
-                                <h6 class="media-heading">John Smith</h6>
-                                <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
-                                <div class="text-muted fs-10px">25 minutes ago</div>
-                            </div>
-                        </a>
-                        @*Actions Notificações*@
-                        <div class="dropdown-footer text-center">
-                            <a href="javascript:;" class="text-decoration-none">View more</a>
-                        </div>
-                    </div>
-                    @*Ações notificação*@
-                </div>
-
-                @*Breve Menu*@
-                <div class="navbar-item navbar-user dropdown">
-                    <a href="#" class="navbar-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="~/assets/profile_menu_icon_149887.png" class="media-object" alt="" />
-                        <span>
-                            <span class="d-none d-md-inline">NOME USUARIO</span>
-                        </span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end me-1">
-                        <a asp-action="Profile" class="dropdown-item">Edit Profile</a>
-                        <div class="dropdown-divider"></div>
-                        <a asp-action="LogOut" asp-controller="RegistroUsuario" lass="dropdown-item">Log Out</a>
-                    </div>
-                </div>
-                @*Breve Menu*@
-            </div>
-
-        </div>
-
-        @* Configura sidebar layout*@
-        <div id="sidebar" class="app-sidebar" data-bs-theme="dark">
-
-            <div class="app-sidebar-content ps ps--active-y" data-scrollbar="true" data-height="100%" style="height: 100%;">
-
-                <div class="menu">
-                    <div class="menu-profile">
-                        <a href="javascript:;" class="menu-profile-link" data-toggle="app-sidebar-profile"
-                           data-target="#appSidebarProfileMenu">
-                            <div class="menu-profile-cover with-shadow"></div>
-                            <div class="menu-profile-image">
-                                <img src="~/assets/profile_menu_icon_149887.png" />
-                            </div>
-                            <div class="menu-profile-info">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-grow-1">
-                                        USUARIO
-                                    </div>
-                                    <div class="menu-caret ms-auto"></div>
-                                </div>
-                                <small>MANAGER</small>
-                            </div>
-                        </a>
-                    </div>
-                    <div id="appSidebarProfileMenu" class="collapse">
-                        <div class="menu-item pt-5px">
-                            <a href="javascript:;" class="menu-link">
-                                <div class="menu-icon"><i class="fa fa-cog"></i></div>
-                                <div class="menu-text">Settings</div>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a href="javascript:;" class="menu-link">
-                                <div class="menu-icon"><i class="fa fa-pencil-alt"></i></div>
-                                <div class="menu-text"> Send Feedback</div>
-                            </a>
-                        </div>
-                        <div class="menu-item pb-5px">
-                            <a href="javascript:;" class="menu-link">
-                                <div class="menu-icon"><i class="fa fa-question-circle"></i></div>
-                                <div class="menu-text"> Helps</div>
-                            </a>
-                        </div>
-                        <div class="menu-divider m-0"></div>
-                    </div>
-                    <div class="menu-header">Serviços</div>
-                    <div class="menu-item has-sub closed">
-                        <a href="javascript:;" class="menu-link">
-                            <div class="menu-icon">
-                                <i class="fa fa-sitemap"></i>
-                            </div>
-                            <div class="menu-text">Dashboard</div>
-                            <div class="menu-caret"></div>
-                        </a>
-                        <div class="menu-submenu" style="box-sizing: border-box; display: none;">
-                            <div class="menu-item">
-                                <a href="index.html" class="menu-link">
-                                    <div class="menu-text">Dashboard v1</div>
-                                </a>
-                            </div>
-                            <div class="menu-item">
-                                <a href="index_v2.html" class="menu-link">
-                                    <div class="menu-text">Dashboard v2</div>
-                                </a>
-                            </div>
-                            <div class="menu-item">
-                                <a href="index_v3.html" class="menu-link">
-                                    <div class="menu-text">Dashboard v3</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item has-sub closed">
-                        <a href="javascript:;" class="menu-link">
-                            <div class="menu-icon">
-                                <i class="fa fa-hdd"></i>
-                            </div>
-                            <div class="menu-text">Email</div>
-                            <div class="menu-badge">10</div>
-                        </a>
-                        <div class="menu-submenu" style="box-sizing: border-box; display: none;">
-                            <div class="menu-item">
-                                <a href="email_inbox.html" class="menu-link">
-                                    <div class="menu-text">Inbox</div>
-                                </a>
-                            </div>
-                            <div class="menu-item">
-                                <a href="email_compose.html" class="menu-link">
-                                    <div class="menu-text">Compose</div>
-                                </a>
-                            </div>
-                            <div class="menu-item">
-                                <a href="email_detail.html" class="menu-link">
-                                    <div class="menu-text">Detail</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <a href="widget.html" class="menu-link">
-                            <div class="menu-icon">
-                                <i class="fab fa-simplybuilt"></i>
-                            </div>
-                            <div class="menu-text">Widgets <span class="menu-label">NEW</span></div>
-                        </a>
-                    </div>
-                    <div class="menu-item d-flex">
-                        <a href="javascript:;"
-                           class="app-sidebar-minify-btn ms-auto d-flex align-items-center text-decoration-none"
-                           data-toggle="app-sidebar-minify"><i class="fa fa-angle-double-left"></i></a>
-                    </div>
-
-                </div>
-                <div class="ps__rail-x" style="left: 0px; bottom: -716px;">
-                    <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-                </div>
-                <div class="ps__rail-y" style="top: 716px; height: 869px; right: 0px;">
-                    <div class="ps__thumb-y" tabindex="0" style="top: 393px; height: 476px;"></div>
-                </div>
-            </div>
-
-        </div>
-        <div class="app-sidebar-bg" data-bs-theme="dark"></div>
-        <div class="app-sidebar-mobile-backdrop">
-            <a href="#" data-dismiss="app-sidebar-mobile" class="stretched-link"></a>
-        </div>
-
-        @* Configura content service do layout*@
-        <div id="content" class="app-content">
-            @RenderBody()
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
         </div>
     </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - ManagerAdmin <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+                <img class="logo-abbr" src="~/images/logo.png" alt="">
+                <img class="logo-compact" src="~/images/logo-text.png" alt="">
+                <img class="brand-title" src="~/images/logo-text.png" alt="">
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/app.min.js" asp-append-version="true"></script>
-    <script src="~/js/vendor.min.js" asp-append-version="true"></script>
-    <script src="~/lib/font-awesome/js/all.js" asp-append-version="true"></script>
-    <script src="~/lib/font-awesome/js/all.min.js" asp-append-version="true"></script>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                        </div>
+
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-bell"></i>
+                                    <div class="pulse-css"></div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul class="list-unstyled">
+                                        <li class="media dropdown-item">
+                                            <span class="success"><i class="ti-user"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p>
+                                                        <strong>Martin</strong> has added a <strong>customer</strong> Successfully
+                                                    </p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                    </ul>
+                                    <a class="all-notification" href="#">
+                                        Veja todas as notificações <i class="ti-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-account"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a asp-action="Profile" class="dropdown-item">
+                                        <i class="icon-user"></i>
+                                        <span class="ml-2">Perfil </span>
+                                    </a>
+                                    <a asp-action="Login" class="dropdown-item">
+                                        <i class="icon-key"></i>
+                                        <span class="ml-2">Logout </span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label">Apps</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon icon-app-store"></i><span class="nav-text">Apps</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-action="ROUTE">ROUTE</a></li>
+                            <li>
+                                <a class="has-arrow" href="javascript:void()" aria-expanded="false">ROUTE</a>
+                                <ul aria-expanded="false">
+                                    <li><a asp-action="SUB-ROUTE">SUB-ROUTE</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <!-- row -->
+            <div class="container-fluid">
+
+                <div id="content" class="app-content">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">UMBIT</a> 2023</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+
+
+    <!-- Vectormap -->
+
+
+    <script src="~/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="~/vendor/chart.js/Chart.bundle.min.js"></script>
+
+    <script src="~/vendor/gaugeJS/dist/gauge.min.js"></script>
+
+    <!--  flot-chart js -->
+    <script src="~/vendor/flot/jquery.flot.js"></script>
+    <script src="~/vendor/flot/jquery.flot.resize.js"></script>
+
+    <!-- Owl Carousel -->
+    <script src="~/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+
+    <!-- Counter Up -->
+    <script src="~/vendor/jqvmap/js/jquery.vmap.min.js"></script>
+    <script src="~/vendor/jqvmap/js/jquery.vmap.usa.js"></script>
+    <script src="~/vendor/jquery.counterup/jquery.counterup.min.js"></script>
+
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

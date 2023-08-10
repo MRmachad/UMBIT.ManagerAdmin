@@ -7,7 +7,7 @@ namespace UMBIT.ManagerAdmin.InterfaceWeb.Configurate
     {
         public static IServiceCollection AddInjectionDependency(this IServiceCollection services)
         {
-            services.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IServicoDeIdentidade, ServicoDeIdentity>();
 
             return services;

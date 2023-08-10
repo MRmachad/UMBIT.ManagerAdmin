@@ -11,6 +11,18 @@ namespace UMBIT.ManagerAdmin.InterfaceWeb.Controllers
         {
                 this.ServicoDeIdentidade = servicoDeIdentidade;
         }
+        public IActionResult Registro()
+        {
+            return View(new LoginRegister());
+        }
+
+        [HttpPost]
+        public IActionResult Registro(LoginRegister loginRequest)
+        {
+            this.ServicoDeIdentidade.Registro(loginRequest.Email, loginRequest.Senha);
+            return RedirectToAction("Index", "Home");
+        }
+
         public IActionResult Login()
         {
             return View(new LoginRequest());
